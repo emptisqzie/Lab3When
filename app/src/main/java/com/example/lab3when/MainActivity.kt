@@ -55,8 +55,17 @@ fun MainScreen(modifier: Modifier = Modifier) {
             onClick = {
                 if (input.value.length != 1 || input.value[0] !in 'A'..'Z') {
                     result.value = "Ошибка: введите одну латинскую прописную букву"
-                } else {
-                    result.value = "Это латинская прописная буква"
+                }
+                else {
+                    when (input.value[0]) {
+                        'L', 'M', 'K', 'D' -> {
+                            result.value = "Это согласные буквы"
+                        }
+
+                        else -> {
+                            result.value = "Возможно, это гласные буквы"
+                        }
+                    }
                 }
             },
             modifier = Modifier.padding(top = 10.dp)
