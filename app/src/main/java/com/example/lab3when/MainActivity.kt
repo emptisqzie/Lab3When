@@ -38,6 +38,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
     val input = remember { mutableStateOf("") }
+    val result = remember { mutableStateOf("") }
 
     Column(
         modifier = modifier.padding(20.dp)
@@ -52,12 +53,17 @@ fun MainScreen(modifier: Modifier = Modifier) {
 
         Button(
             onClick = {
-
+                result.value = "Проверка выполнена"
             },
             modifier = Modifier.padding(top = 10.dp)
         ) {
             Text("Проверить")
         }
+
+        Text(
+            text = result.value,
+            modifier = Modifier.padding(top = 10.dp)
+        )
     }
 }
 
