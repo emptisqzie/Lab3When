@@ -53,7 +53,11 @@ fun MainScreen(modifier: Modifier = Modifier) {
 
         Button(
             onClick = {
-                result.value = "Проверка выполнена"
+                if (input.value.length != 1 || input.value[0] !in 'A'..'Z') {
+                    result.value = "Ошибка: введите одну латинскую прописную букву"
+                } else {
+                    result.value = "Это латинская прописная буква"
+                }
             },
             modifier = Modifier.padding(top = 10.dp)
         ) {
